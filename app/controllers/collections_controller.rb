@@ -44,8 +44,10 @@ class CollectionsController < ApplicationController
 
   def destroy
     authorize @collection
-    if @collection.delete
-      redirect_to collections_path
+    if @collection.destroy
+      respond_to do |format|
+        format.html { redirect_to collections_path }
+      end
     end
   end
 
