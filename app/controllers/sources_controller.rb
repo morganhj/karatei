@@ -12,15 +12,16 @@ class SourcesController < ApplicationController
   def new
     @collection = Collection.find(params[:collection_id])
     @source = Source.new
-    @source.collection = @collection
     authorize @source
   end
 
   def create
+    @collection = Collection.find(params[:collection_id])
     @source = Source.new(source_params)
+    @source.collection = @collection
     authorize @source
     if @source.save
-      redirect_to sources_path
+      redirect_to collection_path(@collection)
     end
   end
 
@@ -44,7 +45,7 @@ class SourcesController < ApplicationController
   private
 
   def source_params
-    params.require(:source).permit(:title, :user, :percentage)
+    params.require(:source).permit(:title, :url)
   end
 
   def get_source

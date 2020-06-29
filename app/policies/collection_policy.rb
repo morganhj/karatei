@@ -13,6 +13,14 @@ class CollectionPolicy < ApplicationPolicy
   	true
   end
 
+  def create?
+  	true
+  end
+
+  def new?
+  	create?
+  end
+
   def update?
   	record.user == user
   end
