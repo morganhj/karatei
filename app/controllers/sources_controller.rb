@@ -10,7 +10,10 @@ class SourcesController < ApplicationController
   end
 
   def new
+    @collection = Collection.find(params[:collection_id])
     @source = Source.new
+    @source.collection = @collection
+    authorize @source
   end
 
   def create

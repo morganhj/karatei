@@ -19,20 +19,29 @@
 					<% end %>
 				</li>
 				<li class="">
-					<%= link_to root_path, class: "menu-btn" do %>
+					<%= link_to new_collection_path, class: "menu-btn" do %>
 					<i class="fas fa-plus"></i>
 					<% end %>
 				</li>	
 			<% end %>
 		<% when "collections" %>
-			<li class="">
-				<%= link_to root_path, class: "menu-btn" do %>
-				<i class="fas fa-arrow-left"></i>
+			<% case action_name %>
+			<% when "index" %>
+				<li class="">
+					<%= link_to root_path, class: "menu-btn" do %>
+					<i class="fas fa-arrow-left"></i>
+					<% end %>
+				</li>
+				<li class="">
+					<button class="menu-btn" id="submit-collections"><i class="fas fa-check"></i></button>
+				</li>
+			<% when "show" %>
+				<% if @collection %>
+					<%= link_to new_collection_source_path(@collection), class: "menu-btn" do %>
+						<i class="fas fa-plus"></i>
+					<% end %>
 				<% end %>
-			</li>
-			<li class="">
-				<button class="menu-btn" id="submit-collections"><i class="fas fa-check"></i></button>
-			</li>
+			<% end %>
 		<% end %>
 	</ul>
 </div>

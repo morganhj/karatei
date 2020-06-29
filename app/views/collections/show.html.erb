@@ -1,2 +1,8 @@
-<h1>Collections#show</h1>
-<p>Find me in app/views/collections/show.html.erb</p>
+<h1 class="text-center mt-2"><%= @collection.title %></h1>
+<div class="source-list">
+	<% @collection.sources.each do |source| %>
+
+	<%= render "sources/source", source: source %>
+
+	<% end %>
+</div>
