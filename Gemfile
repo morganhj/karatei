@@ -34,6 +34,10 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'
+gem 'pundit'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
