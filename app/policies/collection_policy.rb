@@ -28,4 +28,8 @@ class CollectionPolicy < ApplicationPolicy
   def edit?
   	update?
   end
+
+  def destroy?
+  	record.user == user
+  end
 end

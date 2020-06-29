@@ -12,4 +12,8 @@ class SourcePolicy < ApplicationPolicy
   def new?
   	create?
   end
+
+  def destroy?
+    true
+  end
 end

@@ -1,8 +1,8 @@
 <h1 class="text-center mt-2"><%= @collection.title %></h1>
 <div class="source-list">
 	<% @collection.sources.each do |source| %>
-
+	<div id="<%= "#{source.id}" %>">
 	<%= render "sources/source", source: source %>
-
+	</div>
 	<% end %>
 </div>

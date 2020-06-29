@@ -36,9 +36,14 @@ class SourcesController < ApplicationController
   end
 
   def destroy
+    @collection = Collection.find(params[:collection_id])
     authorize @source
-    if @source.delete
-      redirect_to sources_path
+
+    if @source.destroy
+      respond_to do |format|
+        format.html { redirect_to collection_path(@collection) }
+        format.js
+      end
     end
   end
 
@@ -49,6 +54,6 @@ class SourcesController < ApplicationController
   end
 
   def get_source
-    @source = source.find(params[:id])
+    @source = Source.find(params[:id])
   end
 end
