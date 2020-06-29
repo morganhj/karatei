@@ -1,24 +1,38 @@
 <div class="footer">
 	<ul class="list-unstyled d-flex justify-content-around m-0">
-		<li class="">
-			<%= link_to root_path, class: "menu-btn" do %>
+		<% case controller_name %>
+		<% when "pages" %>
+			<li class="">
+				<%= link_to root_path, class: "menu-btn" do %>
 				<i class="fas fa-home"></i>
+				<% end %>
+			</li>
+			<% if user_signed_in? %>
+				<li class="">
+					<%= link_to collections_path, class: "menu-btn" do %>
+					<%= show_svg("icons/Folders.svg") %>
+					<% end %>
+				</li>
+				<li class="">
+					<%= link_to user_path(current_user), class: "menu-btn" do %>
+					<i class="fas fa-user-circle"></i>
+					<% end %>
+				</li>
+				<li class="">
+					<%= link_to root_path, class: "menu-btn" do %>
+					<i class="fas fa-plus"></i>
+					<% end %>
+				</li>	
 			<% end %>
-		</li>
-		<li class="">
-			<%= link_to root_path, class: "menu-btn" do %>
-				<%= show_svg("icons/Folders.svg") %>
-			<% end %>
-		</li>
-		<li class="">
-			<%= link_to root_path, class: "menu-btn" do %>
-				<i class="fas fa-user-circle"></i>
-			<% end %>
-		</li>
-		<li class="">
-			<%= link_to root_path, class: "menu-btn" do %>
-				<i class="fas fa-plus"></i>
-			<% end %>
-		</li>
+		<% when "collections" %>
+			<li class="">
+				<%= link_to root_path, class: "menu-btn" do %>
+				<i class="fas fa-arrow-left"></i>
+				<% end %>
+			</li>
+			<li class="">
+				<button class="menu-btn" id="submit-collections"><i class="fas fa-check"></i></button>
+			</li>
+		<% end %>
 	</ul>
 </div>
