@@ -1,0 +1,25 @@
+.dropdown-toggle::after {
+	margin-left: auto;
+	margin-right: 10px;
+}
+
+.source {
+	transition: 0.2s ease;
+
+	&:hover {
+
+		&:active{
+			transform: scale(1.05);
+			background-color: rgba(0,0,0,0.1);
+		}
+	}
+}
+
+.source-title {
+	white-space: normal;
+	text-align: justify;
+}
+
+.source-list {
+	margin-bottom: 80px;
+}
