@@ -1,7 +1,7 @@
 	
-<%= link_to "#", class: "row border rounded m-3 dropdown-toggle", data: { source_id: source.id, collection_id: source.collection.id, toggle: "dropdown" }, id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false do %>
-<div class="col-10">
-	<p class="h6 font-weight-bold"><%= source.title %></p>			
+<%= link_to "#", class: "row border rounded m-3 dropdown-toggle source pt-2", data: { source_id: source.id, collection_id: source.collection.id, toggle: "dropdown" }, id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false do %>
+<div class="col-12">
+	<p class="h6 font-weight-bold source-title"><%= source.title %></p>			
 	<span style="font-size: 12px;"><%= source.url %></span>			
 </div>
 <% end %>
