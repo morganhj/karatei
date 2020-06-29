@@ -17,10 +17,12 @@ class CollectionsController < ApplicationController
 
   def new
     @collection = Collection.new
+    authorize @collection
   end
 
   def create
     @collection = Collection.new(collection_params)
+    @collection.user = current_user
     authorize @collection
     if @collection.save
       redirect_to collections_path
