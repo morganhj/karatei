@@ -2,7 +2,7 @@
 	<% @collections.each do |collection| %>
 		<div class="row border-bottom my-4">
 			<div class="col-6 pl-4 d-flex align-items-center">
-				<%= collection.title %>			
+				<span style="overflow: wrap;"><%= link_to "#{collection.title}", collection_path(collection.id), class: "text-dark py-4 px-2" %></span>				
 			</div>
 			<div class="col-6 d-flex text-center pt-3">
 				<%= simple_form_for collection do |f| %>

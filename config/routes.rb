@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/show'
-  resources :collections, only: [:index, :show, :new, :create, :edit, :update, :destroy] do 
-    resources :sources, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :collections do 
+    resources :sources
   end
   devise_for :users
   resources :users, only: [:show]
