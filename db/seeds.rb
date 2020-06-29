@@ -12,10 +12,11 @@ Source.delete_all
 puts "Deleting all collections"
 Collection.delete_all
 puts "Deleting all users"
-User.where.not(nickname: "LaPonte").delete_all
+User.where.not(email: ["jusanab@gmail.com","hoaremorgan@gmail.com"]).delete_all
 
 
 morgan = User.create!(nickname: "morgan", email: "morgan@karatei.com", password: "testtest")
+juan = User.create!(nickname: "juan", email: "juan@karatei.com", password: "testtest")
 
 User.all.each do |user|
 	5.times do
