@@ -12,6 +12,13 @@
 	text-decoration: none;
 	border: none;
 	background: none;
+	transition: 0.2s ease;
+	&:hover {
+
+		&:active{
+			transform: scale(1.2);
+		}
+	}
 }
 
 .menu-btn i {
@@ -28,4 +35,12 @@
 
 .btn-padding {
 	padding: 15px;
+	border-radius: 50%;
+	&:hover {
+
+		&:active{
+			background-color: white;
+			box-shadow: 0 0 20px rgba(0,0,0,0.3);
+		}
+	}
 }
