@@ -4,7 +4,7 @@
 	bottom: 0;
 	left: 0;
 	width: 100vw;
-	padding-top: 15px;
+	padding-top: 0;
 
 }
 
@@ -12,6 +12,13 @@
 	text-decoration: none;
 	border: none;
 	background: none;
+	transition: 0.2s ease;
+	&:hover {
+
+		&:active{
+			transform: scale(1.2);
+		}
+	}
 }
 
 .menu-btn i {
@@ -24,4 +31,16 @@
 	height: 30px;
 	width: 30px;
 
+}
+
+.btn-padding {
+	padding: 15px;
+	border-radius: 50%;
+	&:hover {
+
+		&:active{
+			background-color: white;
+			box-shadow: 0 0 20px rgba(0,0,0,0.3);
+		}
+	}
 }

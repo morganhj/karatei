@@ -15,8 +15,8 @@ puts "Deleting all users"
 User.where.not(email: ["jusanab@gmail.com","hoaremorgan@gmail.com"]).delete_all
 
 
-morgan = User.create!(nickname: "morgan", email: "morgan@karatei.com", password: "testtest")
-juan = User.create!(nickname: "juan", email: "juan@karatei.com", password: "testtest")
+morgan = User.create!(nickname: "morgan", email: "morgan@karatei.com", password: "testtest", list: List.create!())
+juan = User.create!(nickname: "juan", email: "juan@karatei.com", password: "testtest", list: List.create!())
 
 User.all.each do |user|
 	5.times do

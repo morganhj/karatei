@@ -1,9 +1,15 @@
 <div class="container">
-  <div class ="row justify-content-center mt-5">
+  <div class ="row justify-content-center">
     <div class="col-12 col-lg-8">
       <div class="d-flex flex-column p-5 mt-5">
         <% if user_signed_in? %>
-          <%= link_to "Your collections", collections_path, class: "btn btn-secondary" %>
+          <div class="source-list">
+            <% @sources.each do |source| %>
+            <div id="<%= "#{source.id}" %>" data-collection-title="<%= "#{source.collection_id}" %>">
+              <%= render "sources/source", source: source %>
+            </div>
+            <% end %>
+          </div>
         <% else %>
         <%= link_to "Sign In", new_user_session_path, class: "btn btn-secondary mb-4" %>
         <%= link_to "Register", new_user_registration_path, class: "btn btn-dark m-0" %>

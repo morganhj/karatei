@@ -1,4 +1,7 @@
-<div class="container pt-4">
+<%= simple_form_for current_user.list do |f| %>
+<% end %>
+
+<div class="container pt-4" style="margin-bottom: 80px;" data-list-id="<%= "#{ current_user.list.id}" %>">
 	<% @collections.each do |collection| %>
 		<div class="row border-bottom my-4">
 			<div class="col-6 pl-4 d-flex align-items-center">

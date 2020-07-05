@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_28_041032) do
+ActiveRecord::Schema.define(version: 2020_07_05_040015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,22 @@ ActiveRecord::Schema.define(version: 2020_06_28_041032) do
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
+  create_table "list_sources", force: :cascade do |t|
+    t.bigint "source_id", null: false
+    t.bigint "list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["list_id"], name: "index_list_sources_on_list_id"
+    t.index ["source_id"], name: "index_list_sources_on_source_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
   create_table "sources", force: :cascade do |t|
     t.string "title"
     t.string "url"
@@ -69,5 +85,8 @@ ActiveRecord::Schema.define(version: 2020_06_28_041032) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "collections", "users"
+  add_foreign_key "list_sources", "lists"
+  add_foreign_key "list_sources", "sources"
+  add_foreign_key "lists", "users"
   add_foreign_key "sources", "collections"
 end
