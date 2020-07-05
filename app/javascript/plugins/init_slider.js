@@ -17,6 +17,10 @@ const handleClick = (submitCollections, event) => {
       	console.log("Collections Updated")
       });
 	})
+
+	const listForm = document.querySelector('.edit_list')
+	listForm.submit()
+
 	document.getElementById('submit-collections').removeEventListener('click', handleClick)
 }
 
