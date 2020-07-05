@@ -9,11 +9,13 @@
 	<%= link_to source.url, class: "dropdown-item" do %>
 		<i class="fas fa-rocket"></i>Go to URL
 	<% end %>
-	<%= link_to collection_source_path(source.collection, source),
-		class: "dropdown-item text-danger",
-		remote: true,
-		method: :delete,
-		data: { confirm: "Are you sure?" } do %>
-		<i class="fas fa-trash"></i>Remove Source
+	<% unless controller_name == "pages" && action_name == "home" %>
+		<%= link_to collection_source_path(source.collection, source),
+			class: "dropdown-item text-danger",
+			remote: true,
+			method: :delete,
+			data: { confirm: "Are you sure?" } do %>
+			<i class="fas fa-trash"></i>Remove Source
+		<% end %>
 	<% end %>
 </div>
