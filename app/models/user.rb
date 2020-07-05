@@ -1,5 +1,6 @@
 require 'pry-byebug'
 class User < ApplicationRecord
+  after_create :create_associated_list
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -37,5 +38,11 @@ class User < ApplicationRecord
       end
     end
     return @sources
+  end
+
+  private
+
+  def create_associated_list
+    List.create!(user: self)
   end
 end
