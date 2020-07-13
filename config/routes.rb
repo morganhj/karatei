@@ -9,4 +9,11 @@ Rails.application.routes.draw do
   resources :lists, only: [:update]
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # API for fetching venues from front-end!
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :sources, only: [:index]
+    end
+  end
 end

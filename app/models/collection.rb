@@ -1,5 +1,5 @@
-
 class Collection < ApplicationRecord
+  searchkick
   belongs_to :user
   has_many :sources, dependent: :destroy
 
@@ -10,8 +10,10 @@ class Collection < ApplicationRecord
   end
 
   def get_percentage_of_total
+    answer = 0
   	total = Collection.get_total_for_(self.user)
   	percentage = self.percentage
-  	return percentage * 100 / total.to_f
+  	answer = percentage * 100 / total.to_f unless total.to_f.zero?
+    return answer
   end
 end

@@ -7,16 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+puts "Deleting all list_sources"
+ListSource.delete_all
 puts "Deleting all sources"
 Source.delete_all
 puts "Deleting all collections"
 Collection.delete_all
+puts "Deleting all lists"
+List.delete_all
 puts "Deleting all users"
-User.where.not(email: ["jusanab@gmail.com","hoaremorgan@gmail.com"]).delete_all
+User.delete_all
 
 
-morgan = User.create!(nickname: "morgan", email: "morgan@karatei.com", password: "testtest", list: List.create!())
-juan = User.create!(nickname: "juan", email: "juan@karatei.com", password: "testtest", list: List.create!())
+morgan = User.create!(nickname: "morgan", email: "morgan@karatei.com", password: "testtest")
+juan = User.create!(nickname: "juan", email: "juan@karatei.com", password: "testtest")
 
 User.all.each do |user|
 	5.times do
