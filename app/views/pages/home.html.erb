@@ -1,35 +1,43 @@
 
 <% if user_signed_in? %>
-<div class="container">
-  <div class ="row justify-content-center">
-    <div class="col-12 col-lg-8">
-      <div class="d-flex flex-column pt-5 px-5">
-        <% if @sources.empty? %>
-          <span class="h6 text-center mt-2">You dont have a list yet</span>
-          <span class="h6 text-center mt-2">Go to your collections to configure how you want your list composition</span>
-        <% else %>
-          <h1 class="text-center">This is your List</h1>
-        <% end %>
+    <div class="row search">
+      <div class="col-2 d-flex align-items-center justify-content-center py-auto" id="search-icon">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="col-10 pl-0">
+        <input type="text" id="search-input" name="query" autocomplete="off" />
       </div>
     </div>
-  </div>
-</div>
-<div class="source-list">
-  <% @sources.each do |source| %>
-  <div id="<%= "#{source.id}" %>" data-collection-title="<%= "#{source.collection_id}" %>">
-    <%= render "sources/source", source: source %>
-  </div>
-  <% end %>
-</div>
+    <div class="container">
+      <div class ="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <div class="d-flex flex-column pt-2 px-5">
+            <% if @sources.empty? %>
+              <span class="h6 text-center mt-2">You dont have a list yet</span>
+              <span class="h6 text-center mt-2">Go to your collections to configure how you want your list composition</span>
+            <% else %>
+              <h1 class="text-center" id="list-header">This is your List</h1>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="source-list">
+      <% @sources.each do |source| %>
+      <div id="<%= "#{source.id}" %>" data-collection-title="<%= "#{source.collection_id}" %>">
+        <%= render "sources/source", source: source %>
+      </div>
+      <% end %>
+    </div>
 <% else %>
-<div class="container">
-  <div class ="row justify-content-center">
-    <div class="col-12 col-lg-8">
-      <div class="d-flex flex-column p-5 mt-5">
-        <%= link_to "Sign In", new_user_session_path, class: "btn btn-secondary mb-4" %>
-        <%= link_to "Register", new_user_registration_path, class: "btn btn-dark m-0" %>
+    <div class="container">
+      <div class ="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <div class="d-flex flex-column p-5 mt-5">
+            <%= link_to "Sign In", new_user_session_path, class: "btn btn-secondary mb-4" %>
+            <%= link_to "Register", new_user_registration_path, class: "btn btn-dark m-0" %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 <% end %>

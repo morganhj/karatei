@@ -36,7 +36,7 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'pundit'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-gem 'pry-byebug'
+gem 'searchkick'
 
 
 group :development, :test do  gem 'pry-byebug'

@@ -1,5 +1,5 @@
-require 'pry-byebug'
 class User < ApplicationRecord
+  searchkick
   after_create :create_associated_list
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
